@@ -30,14 +30,12 @@ class ProxmoxServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-            $this->app['proxmox'] = $this->app->share(function($app)
-		{
+        $this->app->singleton('proxmox', function($app){
             $proxmoxConfig = $app['config'];
             $proxmoxCredetianls = $proxmoxConfig->get('proxmox.server', array());
 
-
             return new \ProxmoxVE\Proxmox($proxmoxCredetianls);
-		});
+        });
 	}
 	/**
 	 * Get the services provided by the provider.

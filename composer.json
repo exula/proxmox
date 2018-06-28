@@ -3,7 +3,7 @@
     "description": "Laravel 5 Bindings for the ZzAntares ProxmoxVE composer package",
     "require": {
         "php": ">=5.4.0",
-        "zzantares/proxmoxve": "~3.0"
+        "zzantares/proxmoxve": "dev-guzzle6"
     },
     "license": "LGPL-3",
     "authors": [
@@ -15,6 +15,16 @@
     "autoload": {
 	    "psr-0": {
             "h1g\\Proxmox": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "h1g\\Proxmox\\ProxmoxServiceProvider"
+            ],
+            "aliases": {
+                "Proxmox": "h1g\\Proxmox\\ProxmoxFacade"
+            }
         }
     },
     "minimum-stability": "dev"
